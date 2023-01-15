@@ -88,29 +88,91 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+let possibleCharacters;
+let passwordLenght;
+var password;
+
+// convert array to string using join() method without comma such as "abcdefghijklmnopqrstuvwxyz"
+let lowerCasedCharactersString = lowerCasedCharacters.join("");
+let upperCasedCharactersString = upperCasedCharacters.join("");
+let numericCharactersString = numericCharacters.join("");
+let specialCharactersString = specialCharacters.join("");
+
+//welcome message
 alert("welcome to generetor password");
-prompt("enter your password lenght");
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+
+  // Prompt the user for the desired password length
+   passwordLenght = prompt("Enter the desired password length:");
+
+    // Check if the length is between 10 and 64
+  if (passwordLenght < 10 || passwordLenght > 64) {
+    // if passwordLenght is less than 10 OR(||) passwordLenght is greater than 64 will dispaly this message.
+    alert("The password length must be between 10 and 64 characters.")
+    return;
+  }
+    // Prompt the user for the types of characters to include in the password
+    var includeUppercase = confirm("Include uppercase letters in the password?");
+    var includeLowercase = confirm("Include lowercase letters in the password?");
+    var includeNumbers = confirm("Include numbers in the password?");
+    var includeSpecial = confirm("Include special characters in the password?");
+    // if 
+    possibleCharacters = "";
+    if (includeUppercase) {
+      possibleCharacters += upperCasedCharactersString;
+    }
+    if (includeLowercase) {
+      possibleCharacters += lowerCasedCharactersString;
+    }
+    if (includeNumbers) {
+      possibleCharacters += numericCharactersString;
+    }
+    if (includeSpecial) {
+      possibleCharacters += specialCharactersString;
+    }
+
+  return {passwordLenght,possibleCharacters}
 
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom(possibleCharacters) {
 
-}
+    return Math.floor(Math.random() * possibleCharacters.length);
+  }
+
+
 
 // Function to generate password with user input
-function generatePassword() {
-
+function generatePassword(options) {
+   password = "";
+  //  for loop to iterate for the desired length
+  for (var i = 0; i < options.passwordLenght; i++) {
+    // Generate a random index based on the length of the possible characters string
+    var randomIndex = getRandom(options.possibleCharacters);
+    // Add the character at the random index to the password string
+    password += options.possibleCharacters[randomIndex];
+  }
+  // Return the generated password
+  return password;
 }
+
+var options = getPasswordOptions();
+// if (options) {
+//     console.log(generatePassword(options));
+// }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(options);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -120,3 +182,5 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 generatePassword();
+
+

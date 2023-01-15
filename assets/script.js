@@ -115,6 +115,11 @@ function getPasswordOptions() {
     alert("⚠️\nThe password length must be between 10 and 64 characters. Refresh and try again");
     return;
   }
+  // Check if the length is a valid integer
+  if (isNaN(length) || length % 1 !== 0) {
+    alert("You must enter a number for the password length. 😔");
+    return;
+  }
     // Prompt the user for the types of characters to include in the password
     var includeUppercase = confirm("Include uppercase letters in the password?");
     var includeLowercase = confirm("Include lowercase letters in the password?");

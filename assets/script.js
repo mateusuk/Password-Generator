@@ -116,7 +116,7 @@ function getPasswordOptions() {
     return;
   }
   // Check if the length is a valid integer
-  if (isNaN(passwordLenght) || passwordLenght % 1 !== 0) {
+  if (isNaN(passwordLenght)) {
     alert("You must enter a number for the password length. 😔");
     return;
   }

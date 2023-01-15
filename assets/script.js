@@ -91,6 +91,7 @@ var upperCasedCharacters = [
 let possibleCharacters;
 let passwordLenght;
 var password;
+var options;
 
 // convert array to string using join() method without comma such as "abcdefghijklmnopqrstuvwxyz"
 let lowerCasedCharactersString = lowerCasedCharacters.join("");
@@ -111,7 +112,7 @@ function getPasswordOptions() {
     // Check if the length is between 10 and 64
   if (passwordLenght < 10 || passwordLenght > 64) {
     // if passwordLenght is less than 10 OR(||) passwordLenght is greater than 64 will dispaly this message.
-    alert("The password length must be between 10 and 64 characters.")
+    alert("⚠️\nThe password length must be between 10 and 64 characters. Refresh and try again");
     return;
   }
     // Prompt the user for the types of characters to include in the password
@@ -119,6 +120,7 @@ function getPasswordOptions() {
     var includeLowercase = confirm("Include lowercase letters in the password?");
     var includeNumbers = confirm("Include numbers in the password?");
     var includeSpecial = confirm("Include special characters in the password?");
+    alert("🚀\nnow click on the red button \"Generate Password\"  👇");
     // if 
     possibleCharacters = "";
     if (includeUppercase) {
@@ -138,6 +140,10 @@ function getPasswordOptions() {
 
 }
 
+
+
+
+
 // Function for getting a random element from an array
 function getRandom(possibleCharacters) {
 
@@ -147,12 +153,13 @@ function getRandom(possibleCharacters) {
 
 
 // Function to generate password with user input
-function generatePassword(options) {
+function generatePassword(passwordLenght,possibleCharacters) {
+  
    password = "";
   //  for loop to iterate for the desired length
-  for (var i = 0; i < options.passwordLenght; i++) {
+  for (var i = 0; i < passwordLenght; i++) {
     // Generate a random index based on the length of the possible characters string
-    var randomIndex = getRandom(options.possibleCharacters);
+    var randomIndex = getRandom(possibleCharacters);
     // Add the character at the random index to the password string
     password += options.possibleCharacters[randomIndex];
   }
@@ -160,10 +167,9 @@ function generatePassword(options) {
   return password;
 }
 
-var options = getPasswordOptions();
-// if (options) {
-//     console.log(generatePassword(options));
-// }
+ options = getPasswordOptions();
+console.log(generatePassword(passwordLenght,possibleCharacters));
+// -----------------------------------------------starter code ------------------------------------------------------------
 
 
 
@@ -172,7 +178,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(options);
+  var password = generatePassword(passwordLenght,possibleCharacters);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;

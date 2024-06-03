@@ -14,13 +14,13 @@
   
   A password generator app, built with HTML, CSS, and JavaScript, empowers users to effortlessly create secure passwords. With an intuitive interface, users can customize the length and characters included in the password.
 
-  ## Installation
+  ## Preview
 
-  N/A
+  ## live at https://mateusuk.github.io/Password-Generator/
 
   ## Usage
 
-  ## live at https://mateusuk.github.io/Password-Generator/
+  N/A
 
   ## License
 
@@ -28,14 +28,14 @@
 
   ## Contributing
 
-  
+  N/A
 
   ## Tests
 
-  
+  N/A
 
   ## Questions
 
-  For additional questions, please contact Mateus.oliveira.uk@gmail.com. Visit my [GitHub profile](https://github.com/Mateusuk) to see more of my work.
+  For additional questions, please contact mateus.oliveira.uk@gmail.com. Visit my [GitHub profile](https://github.com/Mateusuk) to see more of my work.
   
   

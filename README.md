@@ -23,7 +23,7 @@
 
   ## Usage
 
-  N/A
+  <img src="passwordGenerator.png" alt="Image" width="50%">
 
   ## License
 

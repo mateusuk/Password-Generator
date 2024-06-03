@@ -13,6 +13,9 @@
   ## Description
   
   A password generator app, built with HTML, CSS, and JavaScript, empowers users to effortlessly create secure passwords. With an intuitive interface, users can customize the length and characters included in the password.
+  ![HTML](https://img.shields.io/badge/HTML-orange)
+  ![HTML](https://img.shields.io/badge/CSS-blue)
+  ![HTML](https://img.shields.io/badge/JAVASCRIPT-yellow)
 
   ## Preview
 
